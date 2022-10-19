@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>search</title>
+</head>
+<body>
+<h1>这是一个搜索页面</h1>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script type="text/javascript">
+    /*
+      1. 绑定域名
+        - 在接口测试号页面上填写js安全域名接口
+      2. 引入js文件
+        - http://res.wx.qq.com/open/js/jweixin-1.6.0.js
+      3. 通过 config 接口注入权限验证配置
+     */
+
+    //
+    wx.config({
+        debug: true, // 开启调试模式,调用的所有 api 的返回值会在客户端 alert 出来，若要查看传入的参数，可以在 pc 端打开，参数信息会通过 log 打出，仅在 pc 端时才会打印。
+        appId: 'wxecb0a954d889e2b9', // 必填，公众号的唯一标识
+        timestamp: '<%= timestamp %>', // 必填，生成签名的时间戳
+        nonceStr: '<%= noncestr %>', // 必填，生成签名的随机串
+        signature: '<%= signature %>',// 必填，签名
+        jsApiList: [
+            'onMenuShareQQ',  //分享QQ
+            'onMenuShareQZone',  //分享QQ空间
+            'startRecord',  //开始录音
+            'stopRecord',  //结束录音
+            'translateVoice'  //翻译
+        ] // 必填，需要使用的 JS 接口列表
+    });
+
+    wx.ready(function(){
+        // config信息验证后会执行 ready 方法，所有接口调用都必须在 config 接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在 ready 函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在 ready 函数中。
+
+    });
+
+    //通过 error 接口处理失败验证
+    wx.error(function(res){
+        // config信息验证失败会执行 error 函数，如签名过期导致验证失败，具体错误信息可以打开 config 的debug模式查看，也可以在返回的 res 参数中查看，对于 SPA 可以在这里更新签名。
+
+    });
+</script>
+</body>
+</html>

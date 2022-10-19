@@ -1,0 +1,13 @@
+{
+  "name": "wechat_test",
+  "version": "1.0.0",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "jade": "^1.11.0",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9",
+    "sha1": "^1.1.1",
+    "xml2js": "^0.4.23"
+  }
+}
